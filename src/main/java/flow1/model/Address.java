@@ -27,6 +27,7 @@ public class Address {
     @OneToMany(mappedBy = "address", cascade = CascadeType.ALL)
     private Set<Users> users = new HashSet<>();
 
+    //Bi-directional update?
     public void addUser(Users users){
         if(users != null){
             users.setAddress(this);

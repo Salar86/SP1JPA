@@ -16,6 +16,7 @@ import lombok.ToString;
 public class Phone {
     @Id
     private String phoneNumber;
+
     @ManyToOne
     private Users user;
 
