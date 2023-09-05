@@ -15,4 +15,8 @@ import lombok.ToString;
 public class Phone {
     @Id
     private String phoneNumber;
+
+    public Phone(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
 }

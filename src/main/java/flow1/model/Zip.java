@@ -18,4 +18,11 @@ public class Zip {
     private String city;
     private String region;
     private String municipality;
+
+    public Zip(int zip, String city, String region, String municipality) {
+        this.zip = zip;
+        this.city = city;
+        this.region = region;
+        this.municipality = municipality;
+    }
 }

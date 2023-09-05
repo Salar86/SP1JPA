@@ -19,4 +19,8 @@ public class Address {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private String address;
+
+    public Address(String address) {
+        this.address = address;
+    }
 }
