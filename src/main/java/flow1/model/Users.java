@@ -26,6 +26,9 @@ public class Users {
     @OneToMany (mappedBy = "user", cascade = CascadeType.ALL)
     private Set<Phone> phones = new HashSet<>();
 
+    @ManyToOne
+    Address address = new Address();
+
     public Users(String firstName, String lastName, String email) {
         this.firstName = firstName;
         this.lastName = lastName;
