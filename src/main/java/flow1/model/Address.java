@@ -19,6 +19,8 @@ public class Address {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String address;
+    @ManyToOne (cascade = CascadeType.ALL)
+    private Zip zip;
 
     public Address(String address) {
         this.address = address;
@@ -29,6 +31,7 @@ public class Address {
 
     //Bi-directional update?
     public void addUser(Users users){
+        this.users.add(users);
         if(users != null){
             users.setAddress(this);
         }
