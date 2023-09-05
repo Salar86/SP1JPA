@@ -11,7 +11,7 @@ import lombok.ToString;
 @ToString
 @NoArgsConstructor
 @Entity
-public class User {
+public class Users {
     @Id
     @GeneratedValue (strategy = GenerationType.AUTO)
     private int id;
@@ -21,9 +21,17 @@ public class User {
     private String lastName;
     private String email;
 
-    public User(String firstName, String lastName, String email) {
+    public Users(String firstName, String lastName, String email) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
+    }
+
+    @ManyToOne
+    private Address address;
+
+    public void addAddress(String address){
+
+
     }
 }
