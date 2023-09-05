@@ -1,4 +1,5 @@
 package flow1.config;
+import flow1.model.*;
 import jakarta.persistence.EntityManagerFactory;
 import lombok.NoArgsConstructor;
 import org.hibernate.SessionFactory;
@@ -19,7 +20,7 @@ public class HibernateConfig {
 
             Properties props = new Properties();
 
-            props.put("hibernate.connection.url", "jdbc:postgresql://localhost:5432/exercise?currentSchema=public");
+            props.put("hibernate.connection.url", "jdbc:postgresql://localhost:5432/sp1jpa?currentSchema=public");
             props.put("hibernate.connection.username", "postgres");
             props.put("hibernate.connection.password", "postgres");
             props.put("hibernate.show_sql", "true"); // show sql in console
@@ -30,7 +31,7 @@ public class HibernateConfig {
             props.put("hibernate.connection.driver_class", "org.postgresql.Driver"); // driver class for postgresql
             props.put("hibernate.archive.autodetection", "class"); // hibernate scans for annotated classes
             props.put("hibernate.current_session_context_class", "thread"); // hibernate current session context
-            props.put("hibernate.hbm2ddl.auto", "update"); // hibernate creates tables based on entities
+            props.put("hibernate.hbm2ddl.auto", "create"); // hibernate creates tables based on entities
 
 
             return getEntityManagerFactory(configuration, props);
@@ -55,6 +56,11 @@ public class HibernateConfig {
     private static void getAnnotationConfiguration(Configuration configuration) {
         // add annotated classes
         // configuration.addAnnotatedClass(<YOUR ENTITY>.class);
+        configuration.addAnnotatedClass(Users.class);
+        configuration.addAnnotatedClass(Phone.class);
+        configuration.addAnnotatedClass(Hobby.class);
+        configuration.addAnnotatedClass(Address.class);
+        configuration.addAnnotatedClass(Zip.class);
     }
 
     public static EntityManagerFactory getEntityManagerFactoryConfig() {
