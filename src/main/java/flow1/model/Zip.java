@@ -35,7 +35,12 @@ public class Zip {
     private Set<Address> addresses = new HashSet<>();
 
 
-
+    public void addAddress(Address address){
+        this.addresses.add(address);
+        if (address!=null){
+            address.setZip(this);
+        }
+    }
 
 
 
