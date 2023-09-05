@@ -16,7 +16,7 @@ import lombok.ToString;
 @Entity
 public class Hobby {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String wikiLink;
     private String category;

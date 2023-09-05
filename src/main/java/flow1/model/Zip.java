@@ -34,6 +34,13 @@ public class Zip {
     @OneToMany(mappedBy = "zip",cascade = CascadeType.ALL)
     private Set<Address> addresses = new HashSet<>();
 
+    public void addAddress(Address address) {
+        this.addresses.add(address);
+        if (address != null) {
+            address.setZip(this);
+        }
+    }
+
 
     public void addAddress(Address address){
         this.addresses.add(address);
