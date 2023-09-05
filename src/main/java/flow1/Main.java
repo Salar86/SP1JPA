@@ -25,7 +25,9 @@ public class Main {
 
             em.persist(u1);
             em.persist(u2);
-
+            em.persist(hobbyOne);
+            hobbyOne.addUsers(u1);
+            hobbyOne.addUsers(u2);
             em.getTransaction().commit();
 
 

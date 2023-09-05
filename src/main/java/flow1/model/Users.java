@@ -30,7 +30,7 @@ public class Users {
     Address address;
 
     @ManyToMany(mappedBy = "users")
-    private Set<Hobby> hobbies;
+    private Set<Hobby> hobbies = new HashSet<>();
 
     public Users(String firstName, String lastName, String email) {
         this.firstName = firstName;

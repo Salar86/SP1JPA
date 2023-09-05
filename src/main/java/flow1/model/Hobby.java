@@ -29,10 +29,10 @@ public class Hobby {
     }
 
     @ManyToMany(cascade = CascadeType.ALL)
-    private Set<Users> users;
+    private Set<Users> users = new HashSet<>();
 
     public void addUsers(Users user){
-        users.add(user);
+        this.users.add(user);
         if(user != null){
             user.getHobbies().add(this);
         }
