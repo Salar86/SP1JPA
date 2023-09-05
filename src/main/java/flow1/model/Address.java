@@ -20,7 +20,9 @@ public class Address {
     private int id;
     private String address;
 
+
     public Address(String address) {
         this.address = address;
     }
+
 }
