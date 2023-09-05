@@ -29,6 +29,9 @@ public class Users {
     @ManyToOne(cascade = CascadeType.ALL)
     Address address;
 
+    @ManyToMany(mappedBy = "users")
+    private Set<Hobby> hobbies;
+
     public Users(String firstName, String lastName, String email) {
         this.firstName = firstName;
         this.lastName = lastName;
