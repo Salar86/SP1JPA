@@ -9,10 +9,21 @@ import jakarta.persistence.EntityManagerFactory;
 
 public class AddressDAOImpl implements IAddressDAO {
 
+    private static AddressDAOImpl addressDAO = null;
+    private AddressDAOImpl(){}
+    public static AddressDAOImpl getInstance(){
+
+        if (addressDAO == null){
+            addressDAO = new AddressDAOImpl();
+        }
+        return addressDAO;
+    }
+
     EntityManagerFactory emf = HibernateConfig.getEntityManagerFactoryConfig();
+
     @Override
     // Can be cahnged to return a Address object if needed - for UnitTest i suppose.
-    public void addAddressToDatabase(String address) {
+    public void createAddress(String address) {
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
         em.persist(new Address(address));
@@ -21,7 +32,7 @@ public class AddressDAOImpl implements IAddressDAO {
     }
 
     @Override
-    public Address getAddress(int id) {
+    public Address getAddressOfUser(int id) {
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
         Address foundAddress = em.find(Address.class, id);
@@ -33,16 +44,33 @@ public class AddressDAOImpl implements IAddressDAO {
 
     @Override
     public Address updateAddress(Address address) {
-        return null;
+        EntityManager em = emf.createEntityManager();
+        em.getTransaction().begin();
+        Address addressToUpdate = em.merge(address);
+        em.getTransaction().commit();
+        em.close();
+        return addressToUpdate;
     }
 
     @Override
-    public Address addAddressToUser(Users user) {
-        return null;
+    public void addAddressToUser(Address address, int userId) {
+        EntityManager em = emf.createEntityManager();
+        em.getTransaction().begin();
+        Users addressToUpdate = em.find(Users.class, userId);
+        address.addUser(addressToUpdate);
+        em.getTransaction().commit();
+        em.close();
     }
 
     @Override
     public void deleteAddress(int id) {
-
+        EntityManager em = emf.createEntityManager();
+        em.getTransaction().begin();
+        Address addressToDelete = em.find(Address.class, id);
+        if(addressToDelete != null){
+            em.remove(addressToDelete);
+        }
+        em.getTransaction().commit();
+        em.close();
     }
 }

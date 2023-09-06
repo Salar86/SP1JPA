@@ -4,13 +4,13 @@ import flow1.model.Address;
 import flow1.model.Users;
 
 public interface IAddressDAO {
-    void addAddressToDatabase(String address);
+    void createAddress(String address);
 
-    Address getAddress(int id);
+    Address getAddressOfUser(int id);
 
     Address updateAddress(Address address);
 
-    Address addAddressToUser(Users user);
+    void addAddressToUser(Address address, int userId);
 
     void deleteAddress(int id);
 
