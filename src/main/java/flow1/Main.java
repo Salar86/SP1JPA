@@ -1,6 +1,5 @@
 package flow1;
 
-import DAO.AddressDAOImpl;
 import flow1.config.HibernateConfig;
 import flow1.model.Address;
 import flow1.model.Hobby;
@@ -28,13 +27,10 @@ public class Main {
             em.persist(hobbyOne);
             em.persist(hobbyTwo);
             hobbyOne.addUsers(u1);
-            hobbyOne.addUsers(u2);
-            hobbyTwo.addUsers(u1);
+            hobbyOne.addUsers(u1);
+            hobbyTwo.addUsers(u2);
             em.getTransaction().commit();
 
-            AddressDAOImpl DAO = new AddressDAOImpl();
-            DAO.addAddressToDatabase("Holger Danske Vej");
-            System.out.println(DAO.findAddress(1));
 
 
         }

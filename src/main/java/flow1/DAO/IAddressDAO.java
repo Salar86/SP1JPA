@@ -1,4 +1,4 @@
-package DAO;
+package flow1.DAO;
 
 import flow1.model.Address;
 import flow1.model.Users;

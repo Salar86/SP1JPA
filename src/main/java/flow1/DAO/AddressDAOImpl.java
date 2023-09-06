@@ -1,4 +1,4 @@
-package DAO;
+package flow1.DAO;
 
 
 import flow1.config.HibernateConfig;
@@ -6,8 +6,6 @@ import flow1.model.Address;
 import flow1.model.Users;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
-
-import java.util.Optional;
 
 public class AddressDAOImpl implements IAddressDAO {
 
