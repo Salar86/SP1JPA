@@ -1,9 +1,9 @@
 package flow1;
 
+import DAO.AddressDAOImpl;
 import flow1.config.HibernateConfig;
 import flow1.model.Address;
 import flow1.model.Hobby;
-import flow1.model.Phone;
 import flow1.model.Users;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
@@ -26,9 +26,15 @@ public class Main {
             em.persist(u1);
             em.persist(u2);
             em.persist(hobbyOne);
+            em.persist(hobbyTwo);
             hobbyOne.addUsers(u1);
             hobbyOne.addUsers(u2);
+            hobbyTwo.addUsers(u1);
             em.getTransaction().commit();
+
+            AddressDAOImpl DAO = new AddressDAOImpl();
+            DAO.addAddressToDatabase("Holger Danske Vej");
+            System.out.println(DAO.findAddress(1));
 
 
         }
