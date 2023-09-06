@@ -17,7 +17,6 @@ public class HobbyDAO implements IHobbyDAO{
     public HobbyDAO(EntityManagerFactory emf) {
         this.emf = emf;
     }
-
     public static  HobbyDAO getInstance(EntityManagerFactory emf)
     {
         if (hobbyDAO == null){
