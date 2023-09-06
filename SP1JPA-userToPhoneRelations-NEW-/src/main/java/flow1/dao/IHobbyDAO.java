@@ -8,12 +8,19 @@ import flow1.model.Users;
 import java.util.List;
 
 public interface IHobbyDAO {
+    void creatHoppy (Hobby hobby);
+
+    void FindHobbyById (int id );
+
+    void DeleteHobby (Hobby delethobby);
+    Hobby  UpdatedHobby (Hobby hobby);
+    List<Hobby> getAllePerson (int id , String users);
 
     Users getAllUsersInfo(int id, String firstName, String lastname , String email);
 
     Phone GetAllephone (int id , String phoneNumber, String users);
 
-    List<Hobby> getAllePerson (int id , String users);
+
 
     long findTotalNumberOfUsersByHobby (Hobby hobby);
     Long findTotalNumberOfUsersByaddress (Address address);

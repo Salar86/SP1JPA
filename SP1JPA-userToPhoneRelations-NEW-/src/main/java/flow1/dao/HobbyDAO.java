@@ -25,6 +25,43 @@ public class HobbyDAO implements IHobbyDAO{
         }
         return  hobbyDAO;
     }
+
+    @Override
+    public void creatHoppy(Hobby hobby) {
+        EntityManager em = emf.createEntityManager();
+    }
+
+    @Override
+    public void FindHobbyById(int id)
+    {EntityManager em = emf.createEntityManager();
+        Hobby hobby = em.find(Hobby.class, id);
+        em.close();
+    }
+
+    @Override
+    public void DeleteHobby(Hobby hobby) {
+        EntityManager em = emf.createEntityManager();
+        em.getTransaction().begin();
+            em.remove(hobby);
+        em.getTransaction().commit();
+        em.close();
+    }
+
+    public Hobby UpdatedHobby(Hobby hobby) {
+
+        EntityManager em = emf.createEntityManager();
+        em.getTransaction().begin();
+        Hobby updatedHobby = em.merge(hobby);
+        em.getTransaction().commit();
+        em.close();
+        return updatedHobby;
+    }
+
+    @Override
+    public List<Hobby> getAllePerson(int id, String users) {
+        return null;
+    }
+
     @Override
     public Users getAllUsersInfo(int id, String firstName, String lastname, String email) {
         return null;
@@ -36,16 +73,11 @@ public class HobbyDAO implements IHobbyDAO{
     }
 
     @Override
-    public List<Hobby> getAllePerson(int id, String users) {
-        return null;
-    }
-
-    @Override
     public long findTotalNumberOfUsersByHobby(Hobby hobby) {
         try (EntityManager em = emf.createEntityManager())
         {
             TypedQuery<Long> query = em.createQuery("SELECT count( ) FROM Hobby sem JOIN hop.users stud WHERE sem.name = :semesterName", Long.class );
-            query.setParameter("Hobbyinf", Hobby);
+            //query.setParameter("Hobbyinf", Hobby);
             return query.getSingleResult();
         }
 
