@@ -27,4 +27,6 @@ public class Hobby {
         this.category = category;
         this.type = type;
     }
+
+
 }

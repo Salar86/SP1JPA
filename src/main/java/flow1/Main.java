@@ -1,12 +1,11 @@
 package flow1;
 
 import flow1.config.HibernateConfig;
-import flow1.model.Address;
-import flow1.model.Phone;
-import flow1.model.Users;
-import flow1.model.Zip;
+import flow1.model.*;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
+
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
@@ -22,6 +21,25 @@ public class Main {
             em.getTransaction().begin();
             em.persist(u1);
             em.getTransaction().commit();
+
+
+            // USER STORY 6 : [US-6] As a user I want to get all persons living in a given city (i.e. 2800 Lyngby)
+
+            List<Users> users = ZipDAO.getInstance().getUsersFromCity("Næstved");
+            for (Users user : users) {
+                System.out.println(user.getFirstName() + " " + user.getLastName());
+            }
+
+
+//
+////                 USER STORY 7 : [US-7] As a user I want to get a list of all postcodes and city names in Denmark
+//            List<ZipDTO> cities = ZipDAO.getInstance().getZipAndCities();
+//            for (ZipDTO city : cities) {
+//                System.out.println(city);
+
+
+//            }
         }
     }
 }
+

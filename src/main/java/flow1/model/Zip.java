@@ -42,12 +42,7 @@ public class Zip {
     }
 
 
-    public void addAddress(Address address){
-        this.addresses.add(address);
-        if (address!=null){
-            address.setZip(this);
-        }
-    }
+
 
 
 

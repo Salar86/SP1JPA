@@ -11,7 +11,7 @@ import java.util.Set;
 
 @Getter
 @Setter
-@ToString
+//@ToString
 @NoArgsConstructor
 @Entity
 public class Users {
@@ -23,11 +23,13 @@ public class Users {
     @Column (name = "last_name")
     private String lastName;
     private String email;
-    @OneToMany (mappedBy = "user", cascade = CascadeType.ALL)
+    @OneToMany (mappedBy = "user", cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     private Set<Phone> phones = new HashSet<>();
 
     @ManyToOne (cascade = CascadeType.ALL)
     Address address;
+
+
 
     public Users(String firstName, String lastName, String email) {
         this.firstName = firstName;
@@ -44,6 +46,5 @@ public class Users {
             }
         }
     }
-
 
 }
