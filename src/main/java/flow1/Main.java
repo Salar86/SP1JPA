@@ -30,5 +30,8 @@ public class Main {
             }
         }
 
+        HobbyDAOImpl hobbyDAO = HobbyDAOImpl.getInstance();
+        System.out.println(hobbyDAO.getHobby(30));
+
     }
 }
