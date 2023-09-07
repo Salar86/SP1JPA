@@ -35,6 +35,7 @@ public class Hobby {
         this.users.add(user);
         if(user != null){
             user.getHobbies().add(this);
+
         }
 
     }

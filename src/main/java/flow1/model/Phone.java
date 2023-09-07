@@ -25,7 +25,7 @@ public class Phone {
     }
 
     public Boolean validatePhone(String phone) {
-        return phone.matches("[+][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]");
+        return phone.matches("[+]45+[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]");
     }
 
 
