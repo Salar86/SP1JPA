@@ -23,8 +23,8 @@ public class Main {
             Address a2 = new Address("Ferskenvej 99");
             Zip zip = new Zip(4700, "Næstved", "Region Sjælland", "Næstved Kommune");
             Zip zip2 = new Zip(2200, "København", "Region Hovedstaden", "Københavns Kommune");
-            Hobby h1 = new Hobby("test", "test", "test");
-            Hobby h2 = new Hobby("test2", "test2", "test2");
+            Hobby h1 = new Hobby("test", "test", "test", "test");
+            Hobby h2 = new Hobby("test2", "test2", "test2", "test2");
             zip.addAddress(address);
             zip2.addAddress(a2);
             h1.addUsers(u1);
