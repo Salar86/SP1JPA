@@ -6,7 +6,6 @@ import flow1.model.Users;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.TypedQuery;
-import org.hibernate.Hibernate;
 
 import java.util.List;
 
@@ -81,7 +80,6 @@ public class HobbyDAOImpl implements IHobbyDAO{
             size = query.getResultList().size();
 
             return size;
-
         }
     }
 }
