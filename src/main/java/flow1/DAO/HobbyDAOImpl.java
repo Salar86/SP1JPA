@@ -1,9 +1,10 @@
-package flow1.DAO;
+package flow1.dao;
 
 import flow1.config.HibernateConfig;
 import flow1.model.Hobby;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.TypedQuery;
 
 public class HobbyDAOImpl implements IHobbyDAO{
     private static HobbyDAOImpl hobbyDAO = null;
@@ -51,4 +52,5 @@ public class HobbyDAOImpl implements IHobbyDAO{
         em.getTransaction().commit();
         em.close();
     }
+
 }
