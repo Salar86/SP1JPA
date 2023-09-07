@@ -52,10 +52,11 @@ public class Users {
 
     @Override
     public String toString() {
-        return "Users{" +
+        return "Users " +
                 "firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", hobbies=" + hobbies +
+                ", hobbies=" + hobbies + '\'' +
+                ", postnummer" + address.getZip() +
                 '}';
     }
 }

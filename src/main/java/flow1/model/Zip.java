@@ -31,7 +31,8 @@ public class Zip {
         this.municipality = municipality;
     }
 
-    @OneToMany(mappedBy = "zip",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "zip",cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ToString.Exclude
     private Set<Address> addresses = new HashSet<>();
 
     public void addAddress(Address address) {

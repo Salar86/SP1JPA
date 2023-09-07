@@ -11,7 +11,7 @@ import java.util.Set;
 
 @Getter
 @Setter
-@ToString(exclude = "users")
+@ToString
 @NoArgsConstructor
 @Entity
 public class Hobby {
@@ -30,7 +30,8 @@ public class Hobby {
         this.type = type;
     }
 
-    @ManyToMany(cascade = CascadeType.ALL,  fetch = FetchType.EAGER) // Why does EAGER have to be here, when we only want to find the Hobby by id.
+    @ManyToMany(cascade = CascadeType.ALL) // Why does EAGER have to be here, when we only want to find the Hobby by id.
+    @ToString.Exclude
     private Set<Users> users = new HashSet<>();
 
     public void addUsers(Users user){
