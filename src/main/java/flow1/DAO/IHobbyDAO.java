@@ -1,4 +1,4 @@
-package flow1.DAO;
+package flow1.dao;
 
 import flow1.model.Hobby;
 

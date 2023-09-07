@@ -15,7 +15,7 @@ import java.util.Set;
 @NoArgsConstructor
 
 @Entity
-public class Address {
+public class  Address {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;

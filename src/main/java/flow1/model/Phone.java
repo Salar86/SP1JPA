@@ -1,7 +1,6 @@
 package flow1.model;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 import lombok.Getter;
@@ -26,7 +25,7 @@ public class Phone {
     }
 
     public Boolean validatePhone(String phone) {
-        return phone.matches("[+][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]");
+        return phone.matches("[+]45+[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]");
     }
 
 
