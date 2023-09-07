@@ -1,6 +1,7 @@
 package flow1.dao;
 
 import flow1.config.HibernateConfig;
+import flow1.dto.UserDTO;
 import flow1.model.Phone;
 import flow1.model.Users;
 import jakarta.persistence.EntityManager;
@@ -70,5 +71,14 @@ public class PhoneDAOImpl implements IPhoneDAO{
             }
         }
 
+    }
+    public List<UserDTO> getAllUserInfoByPhone(String phone) {
+        try (EntityManager em = emf.createEntityManager()) {
+            TypedQuery<UserDTO> query = em.createQuery(
+                    "select new flow1.dto.UserDTO(u.firstName, u.lastName, u.email, a.address, a.zip.zip, h.category) " +
+                            "FROM Users u, Address a, Hobby h, Phone p where p.id = :phone", UserDTO.class);
+            query.setParameter("phone", phone);
+            return query.getResultList();
+        }
     }
 }

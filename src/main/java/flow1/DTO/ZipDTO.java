@@ -1,4 +1,4 @@
-package flow1.model;
+package flow1.dto;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

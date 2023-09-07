@@ -1,5 +1,7 @@
 package flow1.model;
 
+import flow1.dao.ZipDAO;
+import flow1.dto.ZipDTO;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
