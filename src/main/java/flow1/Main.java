@@ -56,6 +56,8 @@ public class Main {
                 System.out.println(userDTO);
 
             }
+            System.out.println(hobbyDAO.totalNumberOfUsersWithHobby("test2"));
+            System.out.println(hobbyDAO.usersWithAHobby("test2"));
 
 
         }
