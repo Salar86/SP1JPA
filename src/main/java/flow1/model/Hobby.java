@@ -30,14 +30,13 @@ public class Hobby {
         this.type = type;
     }
 
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany(cascade = CascadeType.ALL,  fetch = FetchType.EAGER) // Why does EAGER have to be here, when we only want to find the Hobby by id.
     private Set<Users> users = new HashSet<>();
 
     public void addUsers(Users user){
         this.users.add(user);
         if(user != null){
             user.getHobbies().add(this);
-
         }
 
     }
