@@ -1,8 +1,8 @@
-package flow1.model;
+package flow1.dao;
 
 import flow1.config.HibernateConfig;
-import flow1.model.ZipDTO;
-import jakarta.persistence.EntityManager;
+import flow1.model.Users;
+import flow1.dto.ZipDTO;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.TypedQuery;
 
@@ -39,7 +39,7 @@ public class ZipDAO {
 
         try (var em = emf.createEntityManager()) {
 
-            TypedQuery<ZipDTO> q = em.createQuery("SELECT new flow1.model.ZipDTO(zip,city) FROM Zip a", ZipDTO.class);
+            TypedQuery<ZipDTO> q = em.createQuery("SELECT new flow1.dto.ZipDTO(zip,city) FROM Zip a", ZipDTO.class);
             List<ZipDTO> cities = q.getResultList();
             return cities;
         }

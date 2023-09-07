@@ -1,6 +1,7 @@
 package flow1;
 
 import flow1.config.HibernateConfig;
+import flow1.dao.HobbyDAOImpl;
 import flow1.dao.PhoneDAOImpl;
 import flow1.dao.UserDAOImpl;
 import flow1.dto.UserDTO;
@@ -17,6 +18,7 @@ public class Main {
         try (EntityManager em = emf.createEntityManager()) {
             UserDAOImpl userDAO = UserDAOImpl.getInstance();
             PhoneDAOImpl phoneDAO = PhoneDAOImpl.getInstance();
+            HobbyDAOImpl hobbyDAO = HobbyDAOImpl.getInstance();
             Users u1 = new Users("Preben", "Prebensen", "preben@mail.dk");
             Users u2 = new Users("Lars", "Larsen", "lars@mail.dk");
             Address address = new Address("Ferskenvej 80");
@@ -40,13 +42,18 @@ public class Main {
             em.persist(h2);
 //            em.persist(zip2);
             em.getTransaction().commit();
-//            List<UserDTO> userList = userDAO.getAllUserInfo(1);
-//            for (UserDTO userDTO : userList) {
-//                System.out.println(userDTO);
-//           }
+            List<UserDTO> userList = userDAO.getAllUserInfo(1);
+            for (UserDTO userDTO : userList) {
+                System.out.println(userDTO);
+           }
              List<Phone> phoneList = phoneDAO.findPhoneByUserId(1);
             for (Phone phone : phoneList) {
                 System.out.println(phone.getPhoneNumber());
+
+            }
+            List<UserDTO> userList2 = phoneDAO.getAllUserInfoByPhone("+4555774778");
+            for (UserDTO userDTO : userList2) {
+                System.out.println(userDTO);
 
             }
 
