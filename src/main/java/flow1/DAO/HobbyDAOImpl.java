@@ -9,7 +9,7 @@ import jakarta.persistence.TypedQuery;
 
 import java.util.List;
 
-public class HobbyDAOImpl implements IHobbyDAO{
+public class HobbyDAOImpl implements flow1.dao.IHobbyDAO {
     private static HobbyDAOImpl hobbyDAO = null;
 
     private HobbyDAOImpl(){}

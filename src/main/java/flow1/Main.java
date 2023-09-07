@@ -1,7 +1,7 @@
 package flow1;
 
 import flow1.config.HibernateConfig;
-import flow1.dao.HobbyDAOImpl;
+import flow1.DAO.HobbyDAOImpl;
 import flow1.dao.PhoneDAOImpl;
 import flow1.dao.UserDAOImpl;
 import flow1.dto.UserDTO;
