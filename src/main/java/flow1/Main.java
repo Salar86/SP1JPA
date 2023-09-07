@@ -56,8 +56,6 @@ public class Main {
                 System.out.println(userDTO);
 
             }
-            List users = hobbyDAO.usersWithAHobby("test");
-            System.out.println(users);
 
 
         }
