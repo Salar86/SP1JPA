@@ -28,10 +28,21 @@ public class Main {
             {
                 System.out.println(simpleDTO);
             }
+
+            HobbyDAOImpl hobbyDAO = HobbyDAOImpl.getInstance();
+            List<Users> list = hobbyDAO.usersWithAHobby("Kalligrafi");
+
+            for (Users what : list)
+            {
+                System.out.println(what);
+            }
+
+            System.out.println(hobbyDAO.totalNumberOfUsersWithHobby("Kalligrafi"));
+
+
         }
 
-        HobbyDAOImpl hobbyDAO = HobbyDAOImpl.getInstance();
-        System.out.println(hobbyDAO.getHobby(30));
+
 
     }
 }

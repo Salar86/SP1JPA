@@ -2,8 +2,13 @@ package flow1.DAO;
 
 import flow1.config.HibernateConfig;
 import flow1.model.Hobby;
+import flow1.model.Users;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.TypedQuery;
+import org.hibernate.Hibernate;
+
+import java.util.List;
 
 public class HobbyDAOImpl implements IHobbyDAO{
     private static HobbyDAOImpl hobbyDAO = null;
@@ -50,5 +55,33 @@ public class HobbyDAOImpl implements IHobbyDAO{
         }
         em.getTransaction().commit();
         em.close();
+    }
+
+    public List<Users> usersWithAHobby(String hobby){
+        try (EntityManager em = emf.createEntityManager())
+        {
+            String jpql = "SELECT u FROM Users u JOIN FETCH u.hobbies h WHERE h.name  = :hobby";
+
+            TypedQuery<Users> query = em.createQuery(jpql, Users.class);
+            query.setParameter("hobby", hobby);
+
+            return query.getResultList();
+
+        }
+    }
+
+    public int totalNumberOfUsersWithHobby(String hobby){
+        try (EntityManager em = emf.createEntityManager())
+        {
+            int size = 0;
+            String jpql = "SELECT u FROM Users u JOIN FETCH u.hobbies h WHERE h.name  = :hobby";
+
+            TypedQuery<Users> query = em.createQuery(jpql, Users.class);
+            query.setParameter("hobby", hobby);
+            size = query.getResultList().size();
+
+            return size;
+
+        }
     }
 }

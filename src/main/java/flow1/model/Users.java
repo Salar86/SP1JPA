@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import org.hibernate.FetchMode;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -32,6 +33,7 @@ public class Users {
     @ManyToMany(mappedBy = "users")
     private Set<Hobby> hobbies = new HashSet<>();
 
+
     public Users(String firstName, String lastName, String email) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -48,5 +50,12 @@ public class Users {
         }
     }
 
-
+    @Override
+    public String toString() {
+        return "Users{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", hobbies=" + hobbies +
+                '}';
+    }
 }
