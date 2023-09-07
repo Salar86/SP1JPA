@@ -1,6 +1,7 @@
 package flow1;
 
 import flow1.DAO.AddressDAOImpl;
+import flow1.DAO.HobbyDAOImpl;
 import flow1.DTO.UserAddressDTO;
 import flow1.config.HibernateConfig;
 import flow1.model.Address;
@@ -27,7 +28,7 @@ public class Main {
             {
                 System.out.println(simpleDTO);
             }
-
         }
+
     }
 }

@@ -71,7 +71,7 @@ public class AddressDAOImpl implements IAddressDAO {
     public void deleteAddress(int id) {
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
-        Address addressToDelete = em.find(Address.class, id);
+        Address addressToDelete = getAddressOfUser(id);
         if(addressToDelete != null){
             em.remove(addressToDelete);
         }
